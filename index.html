@@ -12,7 +12,7 @@
         color: #eaeaea;
     }
     .profile-header { 
-        background: linear-gradient(90deg, #232946 0%, #393e6d 100%);
+        background: linear-gradient(120deg, #232946 0%, #393e6d 60%, #3f8efc 100%);
         color: #eaeaea; 
         padding: 2.5rem 1rem 2rem 1rem; 
         text-align: center; 
@@ -43,14 +43,48 @@
         opacity: 0.85;
         margin-bottom: 0;
     }
-    .profile-info { 
-        background: #232946; 
-        max-width: 520px; 
-        margin: 2.5rem auto; 
-        padding: 2.5rem 2rem; 
-        border-radius: 32px; 
+    .profile-info {
+        background: #232946;
+        max-width: 520px;
+        margin: 2.5rem auto;
+        padding: 0;
+        border-radius: 18px;
         box-shadow: 0 4px 32px rgba(35,41,70,0.18);
         position: relative;
+        overflow: hidden;
+        border: 2px solid #393e6d;
+        min-width: 320px;
+        user-select: none;
+    }
+    .window-bar {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background: #181824;
+        padding: 0.5em 0.7em;
+        border-bottom: 1px solid #393e6d;
+        cursor: move;
+    }
+    .window-btn {
+        width: 18px;
+        height: 18px;
+        margin-left: 8px;
+        border-radius: 50%;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .window-btn.min { background: #f7d51d; color: #232946; }
+    .window-btn.max { background: #a7c7e7; color: #232946; }
+    .window-btn.close { background: #e94f4f; color: #fff; }
+    .window-btn:hover { filter: brightness(0.85); }
+    .profile-content {
+        padding: 2.5rem 2rem;
     }
     .profile-details { 
         margin: 1.5rem 0; 
@@ -74,9 +108,18 @@
         color: #a7c7e7;
         text-decoration: none;
         font-weight: 600;
+        padding: 0.5em 1.2em;
+        background: #181824;
+        border-radius: 18px;
+        margin: 0 0.2em 0.3em 0;
+        display: inline-block;
+        box-shadow: 0 2px 8px rgba(35,41,70,0.22);
+        transition: background 0.2s, box-shadow 0.2s;
     }
     .profile-details a:hover {
         text-decoration: underline;
+        background: #232946;
+        box-shadow: 0 4px 24px rgba(35,41,70,0.32);
     }
     .profile-actions { 
         text-align: center; 
@@ -110,20 +153,139 @@
         <h1>Gober</h1>
         <p>@goberfelfe</p>
     </div>
-    <div class="profile-info">
-        <dl class="profile-details">
-            <dt>Bio:</dt>
-            <dd>Hiya, i'm Gober, I'm 14 and I REALLY like deltarune </dd>
-            <dt>Location:</dt>
-            <dd>Virginia, USA</dd>
-            <dt>Interests:</dt>
-            <dd>Game development, web development, programming, and computer repair.</dd>
-            <dt>Skills:</dt>
-            <dd>Fixing phones!</dd>
-            <dt>Contact:</dt>
-            <dd><a href="https://www.youtube.com/@therealgober"></a>
-        </dl>
-    
+    <div class="profile-info" id="mainWindow">
+        <div class="window-bar" id="mainWindowBar">
+            <!-- Removed controls for the big window -->
+        </div>
+        <div class="profile-content" id="mainWindowContent">
+            <dl class="profile-details">
+                <dt onclick="openSubWindow('bioWindow')">Bio</dt>
+                <dt onclick="openSubWindow('locationWindow')">Location</dt>
+                <dt onclick="openSubWindow('interestsWindow')">Interests</dt>
+                <dt onclick="openSubWindow('skillsWindow')">Skills</dt>
+                <dt onclick="openSubWindow('lyricsWindow')">Song lyrics</dt>
+                <dt onclick="openSubWindow('socialsWindow')">Socials</dt>
+            </dl>
+        </div>
     </div>
+    <!-- Sub windows -->
+    <div class="profile-info sub-window" id="bioWindow" style="display:none;">
+        <div class="window-bar" id="bioWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('bioContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('bioWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="bioContent">
+            Hiya, i'm Gober, I'm 14 and I REALLY like deltarune <p>proud Linux user</p>
+        </div>
+    </div>
+    <div class="profile-info sub-window" id="locationWindow" style="display:none;">
+        <div class="window-bar" id="locationWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('locationContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('locationWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="locationContent">
+            Virginia, USA
+        </div>
+    </div>
+    <div class="profile-info sub-window" id="interestsWindow" style="display:none;">
+        <div class="window-bar" id="interestsWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('interestsContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('interestsWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="interestsContent">
+            Game development, web development, programming, and computer repair.
+        </div>
+    </div>
+    <div class="profile-info sub-window" id="skillsWindow" style="display:none;">
+        <div class="window-bar" id="skillsWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('skillsContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('skillsWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="skillsContent">
+            Fixing phones!
+        </div>
+    </div>
+    <div class="profile-info sub-window" id="lyricsWindow" style="display:none;">
+        <div class="window-bar" id="lyricsWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('lyricsContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('lyricsWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="lyricsContent">
+            “Excuse me, baby, you know I can't lose you, baby
+            <p> I know you want that new Mercedes</p>
+            <p>I know that you don't wanna say it (but I know what you want)</p>
+            <a href="https://open.spotify.com/track/6fSaAUqapniPZmOBiFPCaG?si=a656a42920ec4830">KNOW WHAT YOU WANT!- removeface (Spotify)</a>
+        </div>
+    </div>
+    <div class="profile-info sub-window" id="socialsWindow" style="display:none;">
+        <div class="window-bar" id="socialsWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('socialsContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('socialsWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="socialsContent">
+            <a href="https://www.youtube.com/@therealgober">YouTube</a> | 
+            <a href="https://github.com/goberfelfe">GitHub</a> | 
+            <a href="https://tiktok.com/@gober.real">TikTok</a>
+        </div>
+    </div>
+    <script>
+    // Drag to move windows
+    function makeDraggable(barId, winId) {
+        const bar = document.getElementById(barId);
+        const win = document.getElementById(winId);
+        let isDragging = false, offsetX = 0, offsetY = 0;
+
+        bar.addEventListener('mousedown', function(e) {
+            isDragging = true;
+            offsetX = e.clientX - win.offsetLeft;
+            offsetY = e.clientY - win.offsetTop;
+            win.style.position = 'absolute';
+            win.style.zIndex = 1000;
+            win.style.transform = ''; // Remove centering when dragging
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (isDragging) {
+                win.style.left = (e.clientX - offsetX) + 'px';
+                win.style.top = (e.clientY - offsetY) + 'px';
+            }
+        });
+
+        document.addEventListener('mouseup', function() {
+            isDragging = false;
+        });
+    }
+    // Make all windows draggable except main
+    makeDraggable('bioWindowBar', 'bioWindow');
+    makeDraggable('locationWindowBar', 'locationWindow');
+    makeDraggable('interestsWindowBar', 'interestsWindow');
+    makeDraggable('skillsWindowBar', 'skillsWindow');
+    makeDraggable('lyricsWindowBar', 'lyricsWindow');
+    makeDraggable('socialsWindowBar', 'socialsWindow');
+
+    // Window controls
+    function minimizeWindow(contentId) {
+        document.getElementById(contentId).style.display = 'none';
+    }
+    function maximizeWindow(winId) {
+        const win = document.getElementById(winId);
+        win.style.left = '50%';
+        win.style.top = '50%';
+        win.style.transform = 'translate(-50%, -50%)';
+        win.style.width = '520px';
+        win.style.position = 'fixed';
+        const content = win.querySelector('.profile-content');
+        if (content) content.style.display = '';
+    }
+    function closeWindow(winId) {
+        document.getElementById(winId).style.display = 'none';
+    }
+    function openSubWindow(winId) {
+        document.getElementById(winId).style.display = '';
+        document.getElementById(winId).style.zIndex = 1001;
+        const content = document.getElementById(winId).querySelector('.profile-content');
+        if (content) content.style.display = '';
+    }
+    </script>
 </body>
 </html>
