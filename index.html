@@ -2,39 +2,121 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Social Profile</title>
+    <title>About Me! :3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
-        .profile-header { background: #4a90e2; color: #fff; padding: 2rem 1rem; text-align: center; }
-        .profile-pic { width: 120px; height: 120px; border-radius: 50%; border: 4px solid #fff; margin-bottom: 1rem; object-fit: cover; }
-        .profile-info { background: #fff; max-width: 500px; margin: 2rem auto; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .profile-details { margin: 1rem 0; }
-        .profile-details dt { font-weight: bold; }
-        .profile-details dd { margin: 0 0 1rem 0; }
-        .profile-actions { text-align: center; margin-top: 2rem; }
-        .profile-actions button { padding: 0.5rem 1.5rem; border: none; border-radius: 4px; background: #4a90e2; color: #fff; cursor: pointer; }
+    body { 
+        font-family: 'Quicksand', Arial, sans-serif; 
+        margin: 0; 
+        background: linear-gradient(135deg, #f9e7fe 0%, #c1eaff 100%);
+    }
+    .profile-header { 
+        background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+        color: #fff; 
+        padding: 2.5rem 1rem 2rem 1rem; 
+        text-align: center; 
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+        box-shadow: 0 8px 32px rgba(33,147,176,0.12);
+        position: relative;
+    }
+    .profile-pic { 
+        width: 130px; 
+        height: 130px; 
+        border-radius: 50%; 
+        border: 6px solid #fff; 
+        margin-bottom: 1rem; 
+        object-fit: cover; 
+        box-shadow: 0 4px 24px rgba(33,147,176,0.18);
+        background: #fff;
+    }
+    .profile-header h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 0.2rem;
+        text-shadow: 0 2px 8px rgba(33,147,176,0.12);
+    }
+    .profile-header p {
+        font-size: 1.1rem;
+        opacity: 0.85;
+        margin-bottom: 0;
+    }
+    .profile-info { 
+        background: #fff; 
+        max-width: 520px; 
+        margin: 2.5rem auto; 
+        padding: 2.5rem 2rem; 
+        border-radius: 32px; 
+        box-shadow: 0 4px 32px rgba(33,147,176,0.10);
+        position: relative;
+    }
+    .profile-details { 
+        margin: 1.5rem 0; 
+    }
+    .profile-details dt { 
+        font-weight: bold; 
+        font-size: 1.1rem;
+        color: #2193b0;
+        margin-bottom: 0.2rem;
+    }
+    .profile-details dd { 
+        margin: 0 0 1.2rem 0; 
+        font-size: 1rem;
+        color: #444;
+        background: #f1f9ff;
+        border-radius: 16px;
+        padding: 0.7rem 1rem;
+        box-shadow: 0 2px 8px rgba(33,147,176,0.06);
+    }
+    .profile-details a {
+        color: #6dd5ed;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .profile-details a:hover {
+        text-decoration: underline;
+    }
+    .profile-actions { 
+        text-align: center; 
+        margin-top: 2.5rem; 
+    }
+    .profile-actions button { 
+        padding: 0.7rem 2rem; 
+        border: none; 
+        border-radius: 24px; 
+        background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+        color: #fff; 
+        cursor: pointer; 
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin: 0 0.5rem;
+        box-shadow: 0 2px 12px rgba(33,147,176,0.14);
+        transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .profile-actions button:hover {
+        transform: scale(1.07);
+        box-shadow: 0 4px 24px rgba(33,147,176,0.22);
+        background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+    }
     </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="profile-header">
-        <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-pic">
-        <h1>Gober (markan)</h1>
+        <img src="https://github.com/goberfelfe.png" alt="Profile Picture" class="profile-pic">
+        <h1>Gober</h1>
         <p>@janedoe</p>
     </div>
     <div class="profile-info">
         <dl class="profile-details">
             <dt>Bio:</dt>
-            <dd>Web developer. Coffee lover. Traveler.</dd>
-            <dt>Location:</dt>
-            <dd>New York, USA</dd>
-            <dt>Website:</dt>
-            <dd><a href="https://janedoe.com">janedoe.com</a></dd>
+            <dd>Future game and web dev</dd>
+            <dt>Location:MURICA</dt>
+            <dd>Virginia, USA</dd>
         </dl>
-        <div class="profile-actions">
-            <button>Follow</button>
-            <button>Message</button>
-        </div>
+    
     </div>
 </body>
 </html>
