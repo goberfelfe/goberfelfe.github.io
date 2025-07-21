@@ -8,7 +8,7 @@
     body { 
         font-family: 'Quicksand', Arial, sans-serif; 
         margin: 0; 
-        background: linear-gradient(135deg, #181824 0%, #232946 100%);
+        background: linear-gradient(135deg, #20233c 0%, #353a5c 60%, #9bb6d6 100%);
         color: #eaeaea;
     }
     .profile-header { 
@@ -25,7 +25,7 @@
         width: 130px; 
         height: 130px; 
         border-radius: 50%; 
-        border: 6px solid #393e6d; 
+        border: 6px solid #181824; /* Dark mode color */
         margin-bottom: 1rem; 
         object-fit: cover; 
         box-shadow: 0 4px 24px rgba(35,41,70,0.28);
@@ -45,7 +45,7 @@
     }
     .profile-info {
         background: #232946;
-        max-width: 520px;
+        max-width: 640px; /* Increased from 520px */
         margin: 2.5rem auto;
         padding: 0;
         border-radius: 18px;
@@ -78,16 +78,23 @@
         font-weight: bold;
         cursor: pointer;
         transition: background 0.2s;
+        background: #181824; /* Same as link-btn */
+        color: #a7c7e7;      /* Same as link-btn */
     }
-    .window-btn.min { background: #f7d51d; color: #232946; }
-    .window-btn.max { background: #a7c7e7; color: #232946; }
-    .window-btn.close { background: #e94f4f; color: #fff; }
-    .window-btn:hover { filter: brightness(0.85); }
+    .window-btn:hover {
+        background: #232946; /* Same as link-btn hover */
+        color: #a7c7e7;
+        filter: none;
+    }
     .profile-content {
         padding: 2.5rem 2rem;
     }
     .profile-details { 
         margin: 1.5rem 0; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
     .profile-details dt { 
         font-weight: bold; 
@@ -108,13 +115,16 @@
         color: #a7c7e7;
         text-decoration: none;
         font-weight: 600;
-        padding: 0.5em 1.2em;
+        padding: 0.7em 1.5em;
         background: #181824;
         border-radius: 18px;
         margin: 0 0.2em 0.3em 0;
         display: inline-block;
         box-shadow: 0 2px 8px rgba(35,41,70,0.22);
+        border: none;
+        cursor: pointer;
         transition: background 0.2s, box-shadow 0.2s;
+        font-size: 1.15rem;
     }
     .profile-details a:hover {
         text-decoration: underline;
@@ -143,6 +153,38 @@
         box-shadow: 0 4px 24px rgba(35,41,70,0.32);
         background: linear-gradient(90deg, #232946 0%, #393e6d 100%);
     }
+    .profile-info.sub-window {
+        max-width: 800px !important;
+        width: 800px !important;
+        font-size: 1.25rem !important;
+    }
+    .profile-info.sub-window .profile-content,
+    .profile-info.sub-window .profile-details dd,
+    .profile-info.sub-window .profile-details dt {
+        font-size: 1.25rem !important;
+    }
+    .profile-info.sub-window .profile-details a {
+        font-size: 1.15rem !important;
+        padding: 0.7em 1.5em !important;
+    }
+    .link-btn {
+        color: #a7c7e7;
+        background: #181824;
+        border-radius: 18px;
+        font-weight: 600;
+        padding: 0.7em 1.5em;
+        margin: 0 0.2em 0.3em 0;
+        display: inline-block;
+        box-shadow: 0 2px 8px rgba(35,41,70,0.22);
+        border: none;
+        cursor: pointer;
+        font-size: 1.15rem;
+        transition: background 0.2s, box-shadow 0.2s;
+    }
+    .link-btn:hover {
+        background: #232946;
+        box-shadow: 0 4px 24px rgba(35,41,70,0.32);
+    }
     </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
@@ -155,20 +197,19 @@
     </div>
     <div class="profile-info" id="mainWindow">
         <div class="window-bar" id="mainWindowBar">
-            <!-- Removed controls for the big window -->
         </div>
         <div class="profile-content" id="mainWindowContent">
-            <dl class="profile-details">
-                <dt onclick="openSubWindow('bioWindow')">Bio</dt>
-                <dt onclick="openSubWindow('locationWindow')">Location</dt>
-                <dt onclick="openSubWindow('interestsWindow')">Interests</dt>
-                <dt onclick="openSubWindow('skillsWindow')">Skills</dt>
-                <dt onclick="openSubWindow('lyricsWindow')">Song lyrics</dt>
-                <dt onclick="openSubWindow('socialsWindow')">Socials</dt>
-            </dl>
+            <div class="profile-details">
+                <button class="link-btn" onclick="openSubWindow('bioWindow')">Bio</button>
+                <button class="link-btn" onclick="openSubWindow('locationWindow')">Location</button>
+                <button class="link-btn" onclick="openSubWindow('interestsWindow')">Interests</button>
+                <button class="link-btn" onclick="openSubWindow('skillsWindow')">Skills</button>
+                <button class="link-btn" onclick="openSubWindow('lyricsWindow')">fav lyrics</button>
+                <button class="link-btn" onclick="openSubWindow('socialsWindow')">Socials</button>
+                <button class="link-btn" onclick="openSubWindow('odetariWindow')">Odetari</button>
+            </div>
         </div>
     </div>
-    <!-- Sub windows -->
     <div class="profile-info sub-window" id="bioWindow" style="display:none;">
         <div class="window-bar" id="bioWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('bioContent')">_</button>
@@ -214,7 +255,8 @@
             “Excuse me, baby, you know I can't lose you, baby
             <p> I know you want that new Mercedes</p>
             <p>I know that you don't wanna say it (but I know what you want)</p>
-            <a href="https://open.spotify.com/track/6fSaAUqapniPZmOBiFPCaG?si=a656a42920ec4830">KNOW WHAT YOU WANT!- removeface (Spotify)</a>
+            <button class="link-btn" onclick="window.open('https://open.spotify.com/track/6fSaAUqapniPZmOBiFPCaG?si=a656a42920ec4830','_blank')">
+        KNOW WHAT YOU WANT!- removeface (Spotify)</a>
         </div>
     </div>
     <div class="profile-info sub-window" id="socialsWindow" style="display:none;">
@@ -223,9 +265,43 @@
             <button class="window-btn close" title="Close" onclick="closeWindow('socialsWindow')">&#10005;</button>
         </div>
         <div class="profile-content" id="socialsContent">
-            <a href="https://www.youtube.com/@therealgober">YouTube</a> | 
-            <a href="https://github.com/goberfelfe">GitHub</a> | 
-            <a href="https://tiktok.com/@gober.real">TikTok</a>
+            <button class="link-btn" onclick="window.open('https://www.youtube.com/@therealgober','_blank')">YouTube</button>
+            <button class="link-btn" onclick="window.open('https://github.com/goberfelfe','_blank')">GitHub</button>
+            <button class="link-btn" onclick="window.open('https://tiktok.com/@gober.real','_blank')">TikTok</button>
+        </div>
+    </div>
+    <div class="profile-info sub-window" id="odetariWindow" style="display:none;">
+        <div class="window-bar" id="odetariWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('odetariContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('odetariWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="odetariContent">
+            <p>SELF TAUGHT - Odetari</p>
+            <audio controls>
+                <source src="selftaught.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p><button class="link-btn" onclick="window.open('https://open.spotify.com/track/5C4XvA46ipcKgQeqUQ1HA5?si=a2d10f8a339f45fd')">Spotify</button></p>
+        </div>
+    </div>
+    <!-- Add the Posts popup window -->
+    <div class="profile-info sub-window" id="postsWindow" style="display:none;">
+        <div class="window-bar" id="postsWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('postsContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('postsWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="postsContent">
+            <div id="postsList" style="margin-bottom:1em;"></div>
+            <div id="postsLogin">
+                <label for="postsPassword">Enter password to post:</label>
+                <input type="password" id="postsPassword" style="border-radius:8px;padding:0.4em;">
+                <button class="link-btn" onclick="checkPostsPassword()">Login</button>
+                <p id="postsLoginError" style="color:#e94f4f;"></p>
+            </div>
+            <div id="postsArea" style="display:none;">
+                <textarea id="postsText" rows="3" style="width:95%;border-radius:8px;padding:0.5em;"></textarea><br>
+                <button class="link-btn" onclick="addPost()">Post</button>
+            </div>
         </div>
     </div>
     <script>
@@ -262,6 +338,9 @@
     makeDraggable('skillsWindowBar', 'skillsWindow');
     makeDraggable('lyricsWindowBar', 'lyricsWindow');
     makeDraggable('socialsWindowBar', 'socialsWindow');
+    makeDraggable('odetariWindowBar', 'odetariWindow');
+    // Make posts window draggable
+    makeDraggable('postsWindowBar', 'postsWindow');
 
     // Window controls
     function minimizeWindow(contentId) {
@@ -272,7 +351,7 @@
         win.style.left = '50%';
         win.style.top = '50%';
         win.style.transform = 'translate(-50%, -50%)';
-        win.style.width = '520px';
+        win.style.width = '800px'; // Increased for popups
         win.style.position = 'fixed';
         const content = win.querySelector('.profile-content');
         if (content) content.style.display = '';
@@ -281,11 +360,94 @@
         document.getElementById(winId).style.display = 'none';
     }
     function openSubWindow(winId) {
-        document.getElementById(winId).style.display = '';
-        document.getElementById(winId).style.zIndex = 1001;
-        const content = document.getElementById(winId).querySelector('.profile-content');
+        const win = document.getElementById(winId);
+        win.style.display = '';
+        win.style.position = 'fixed';
+        win.style.left = '50%';
+        win.style.top = '0';
+        win.style.transform = 'translate(-50%, 0)';
+        win.style.zIndex = 1001;
+        win.style.width = '800px'; // Increased from 520px
+        const content = win.querySelector('.profile-content');
         if (content) content.style.display = '';
     }
+
+    // Show posts on window open
+    function loadPosts() {
+        const postsList = document.getElementById('postsList');
+        postsList.innerHTML = '';
+        const posts = JSON.parse(localStorage.getItem('userPosts') || '[]');
+        posts.forEach((post, idx) => {
+            const div = document.createElement('div');
+            div.style.background = '#393e6d';
+            div.style.color = '#eaeaea';
+            div.style.borderRadius = '10px';
+            div.style.padding = '0.5em 1em';
+            div.style.marginBottom = '0.5em';
+            div.style.display = 'flex';
+            div.style.justifyContent = 'space-between';
+            div.style.alignItems = 'center';
+
+            const postText = document.createElement('span');
+            postText.textContent = post;
+
+            const delBtn = document.createElement('button');
+            delBtn.textContent = 'Delete';
+            delBtn.className = 'link-btn';
+            delBtn.style.background = '#e94f4f';
+            delBtn.style.color = '#fff';
+            delBtn.style.marginLeft = '1em';
+            delBtn.style.fontSize = '0.95rem';
+            delBtn.onclick = function() { deletePost(idx); };
+
+            div.appendChild(postText);
+            div.appendChild(delBtn);
+            postsList.appendChild(div);
+        });
+    }
+
+    // Only require password for posting
+    function checkPostsPassword() {
+        const pw = document.getElementById('postsPassword').value;
+        if (pw === 'muga') {
+            document.getElementById('postsLogin').style.display = 'none';
+            document.getElementById('postsArea').style.display = '';
+        } else {
+            document.getElementById('postsLoginError').textContent = "Incorrect password!";
+        }
+    }
+
+    function addPost() {
+        const text = document.getElementById('postsText').value.trim();
+        if (text.length === 0) return;
+        let posts = JSON.parse(localStorage.getItem('userPosts') || '[]');
+        posts.push(text);
+        localStorage.setItem('userPosts', JSON.stringify(posts));
+        document.getElementById('postsText').value = '';
+        loadPosts();
+    }
+
+    function deletePost(idx) {
+        let posts = JSON.parse(localStorage.getItem('userPosts') || '[]');
+        posts.splice(idx, 1);
+        localStorage.setItem('userPosts', JSON.stringify(posts));
+        loadPosts();
+    }
+    window.deletePost = deletePost;
+
+    // Load posts every time the window opens
+    const originalOpenSubWindow = openSubWindow;
+    window.openSubWindow = function(winId) {
+        originalOpenSubWindow(winId);
+        if (winId === 'postsWindow') {
+            loadPosts();
+            document.getElementById('postsLogin').style.display = '';
+            document.getElementById('postsArea').style.display = 'none';
+            document.getElementById('postsPassword').value = '';
+            document.getElementById('postsLoginError').textContent = '';
+        }
+    };
     </script>
 </body>
 </html>
+
