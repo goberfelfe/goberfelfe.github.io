@@ -208,6 +208,7 @@
                 <button class="link-btn" onclick="openSubWindow('lyricsWindow')">fav lyrics</button>
                 <button class="link-btn" onclick="openSubWindow('socialsWindow')">Socials</button>
                 <button class="link-btn" onclick="openSubWindow('odetariWindow')">Odetari</button>
+                <button class="link-btn" onclick="openSubWindow('projectsWindow')">Projects</button>
             </div>
         </div>
     </div>
@@ -285,6 +286,23 @@
             <p><button class="link-btn" onclick="window.open('https://open.spotify.com/track/5C4XvA46ipcKgQeqUQ1HA5?si=a2d10f8a339f45fd')">Spotify</button></p>
         </div>
     </div>
+    <div class="profile-info sub-window" id="projectsWindow" style="display:none;">
+        <div class="window-bar" id="projectsWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('projectsContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('projectsWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="projectsContent">
+            <h3 style="margin-top:0;color:#a7c7e7;">Projects</h3>
+            <p style="margin-bottom:0.6rem;">A few things I've worked on:</p>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe','_blank')">dumbass gitHub repos</button>
+                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe/gober-site','_blank')"> this site(repo)</button>
+                <button class="link-btn" onclick="window.open('https://youtube.com/@therealgober','_blank')">shitty channel (YouTube)</button>
+                <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/veryeasytutorialtrust','_blank')">very easy tutorial trust</button>
+            </div>
+            </div>
+        </div>
+    </div>
     <!-- Add the Posts popup window -->
     <div class="profile-info sub-window" id="postsWindow" style="display:none;">
         <div class="window-bar" id="postsWindowBar">
@@ -340,6 +358,7 @@
     makeDraggable('lyricsWindowBar', 'lyricsWindow');
     makeDraggable('socialsWindowBar', 'socialsWindow');
     makeDraggable('odetariWindowBar', 'odetariWindow');
+    makeDraggable('projectsWindowBar', 'projectsWindow');
     // Make posts window draggable
     makeDraggable('postsWindowBar', 'postsWindow');
 
