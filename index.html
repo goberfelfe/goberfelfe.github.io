@@ -210,6 +210,7 @@
                 <button class="link-btn" onclick="openSubWindow('odetariWindow')">Odetari</button>
                 <button class="link-btn" onclick="openSubWindow('projectsWindow')">Projects</button>
                 <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/veryeasytutorialtrust','_blank')">very easy tutorial trust</button>
+                <button class="link-btn" onclick="openSubWindow('undertmlWindow')">undertml copy</button>
             </div>
         </div>
     </div>
@@ -301,6 +302,20 @@
                 <button class="link-btn" onclick="window.open('https://youtube.com/@therealgober','_blank')">shitty channel (YouTube)</button>
                 <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/veryeasytutorialtrust','_blank')">very easy tutorial trust</button>
             </div>
+        </div>
+    </div>
+
+    <!-- New Undertml copy window -->
+    <div class="profile-info sub-window" id="undertmlWindow" style="display:none;">
+        <div class="window-bar" id="undertmlWindowBar">
+            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('undertmlContent')">_</button>
+            <button class="window-btn close" title="Close" onclick="closeWindow('undertmlWindow')">&#10005;</button>
+        </div>
+        <div class="profile-content" id="undertmlContent">
+            <h3 style="margin-top:0;color:#a7c7e7;">Undertml copy</h3>
+            <p style="margin-bottom:0.8rem;">A copy/description of the undertml project — lightweight HTML demo inspired by Undertale styling. Click the button below to open the page.</p>
+            <div style="display:flex;gap:0.6rem;">
+                <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/undertml-copy','_blank')">UNDERTML UNBLOCKED!1!</button>
             </div>
         </div>
     </div>
@@ -362,6 +377,9 @@
     makeDraggable('projectsWindowBar', 'projectsWindow');
     // Make posts window draggable
     makeDraggable('postsWindowBar', 'postsWindow');
+    // Make undertml window draggable
+    makeDraggable('undertmlWindowBar', 'undertmlWindow');
+    
 
     // Window controls
     function minimizeWindow(contentId) {
@@ -454,21 +472,22 @@
         localStorage.setItem('userPosts', JSON.stringify(posts));
         loadPosts();
     }
-    window.deletePost = deletePost;
+    window.deletePost = deletePost;    const originalOpenSubWindow = openSubWindow;
+
+
+
 
     // Load posts every time the window opens
-    const originalOpenSubWindow = openSubWindow;
-    window.openSubWindow = function(winId) {
-        originalOpenSubWindow(winId);
-        if (winId === 'postsWindow') {
-            loadPosts();
-            document.getElementById('postsLogin').style.display = '';
-            document.getElementById('postsArea').style.display = 'none';
-            document.getElementById('postsPassword').value = '';
-            document.getElementById('postsLoginError').textContent = '';
-        }
-    };
-    </script>
-</body>
-</html>
 
+
+
+
+
+
+
+
+
+
+
+
+</body>    </script>    };        }            document.getElementById('postsLoginError').textContent = '';            document.getElementById('postsPassword').value = '';            document.getElementById('postsArea').style.display = 'none';            document.getElementById('postsLogin').style.display = '';            loadPosts();        if (winId === 'postsWindow') {        originalOpenSubWindow(winId);    window.openSubWindow = function(winId) {
