@@ -212,15 +212,17 @@
             </div>
         </div>
     </div>
+    <!-- Cleaned sub-windows (removed malformed stray buttons/text at bottom) -->
     <div class="profile-info sub-window" id="bioWindow" style="display:none;">
         <div class="window-bar" id="bioWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('bioContent')">_</button>
             <button class="window-btn close" title="Close" onclick="closeWindow('bioWindow')">&#10005;</button>
         </div>
         <div class="profile-content" id="bioContent">
-            Hiya, i'm Gober, I'm 14 and I REALLY like deltarune <p>proud Linux user</p>
+            Hiya, I'm Gober — I'm 14 and I REALLY like Deltarune. Proud Linux user.
         </div>
     </div>
+
     <div class="profile-info sub-window" id="locationWindow" style="display:none;">
         <div class="window-bar" id="locationWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('locationContent')">_</button>
@@ -230,6 +232,7 @@
             Virginia, USA
         </div>
     </div>
+
     <div class="profile-info sub-window" id="interestsWindow" style="display:none;">
         <div class="window-bar" id="interestsWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('interestsContent')">_</button>
@@ -239,6 +242,7 @@
             Game development, web development, programming, and computer repair.
         </div>
     </div>
+
     <div class="profile-info sub-window" id="skillsWindow" style="display:none;">
         <div class="window-bar" id="skillsWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('skillsContent')">_</button>
@@ -248,62 +252,39 @@
             Fixing phones!
         </div>
     </div>
-    <div class="profile-info sub-window" id="lyricsWindow" style="display:none;">>
-        <div class="window-bar" id="lyricsWindowBar">>
-            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('lyricsContent')">_</button>>
-            <button class="window-btn close" title="Close" onclick="closeWindow('lyricsWindow')">&#10005;</button>>
-        </div>
-        <div class="profile-content" id="lyricsContent">>
-            “Excuse me, baby, you know I can't lose you, babytps://www.youtube.com/@therealgober','_blank')">YouTube</button>
-            <p> I know you want that new Mercedes</p>open('https://github.com/goberfelfe','_blank')">GitHub</button>
-            <p>I know that you don't wanna say it (but I know what you want)</p>ober.real','_blank')">TikTok</button>
-            <button class="link-btn" onclick="window.open('https://open.spotify.com/track/6fSaAUqapniPZmOBiFPCaG?si=a656a42920ec4830','_blank')">
-        KNOW WHAT YOU WANT!- removeface (Spotify)</a>
-        </div>="profile-info sub-window" id="projectsWindow" style="display:none;">
-    </div>
-    <div class="profile-info sub-window" id="socialsWindow" style="display:none;">w('projectsContent')">_</button>
-        <div class="window-bar" id="socialsWindowBar">ose" onclick="closeWindow('projectsWindow')">&#10005;</button>
+
+    <div class="profile-info sub-window" id="socialsWindow" style="display:none;">
+        <div class="window-bar" id="socialsWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('socialsContent')">_</button>
             <button class="window-btn close" title="Close" onclick="closeWindow('socialsWindow')">&#10005;</button>
-        </div>3 style="margin-top:0;color:#a7c7e7;">Projects</h3>
-        <div class="profile-content" id="socialsContent"> I've worked on:</p>
-            <button class="link-btn" onclick="window.open('https://www.youtube.com/@therealgober','_blank')">YouTube</button>
-            <button class="link-btn" onclick="window.open('https://github.com/goberfelfe','_blank')">GitHub</button>Hub repos</button>
-            <button class="link-btn" onclick="window.open('https://tiktok.com/@gober.real','_blank')">TikTok</button>this site(repo)</button>
-        </div>  <button class="link-btn" onclick="window.open('https://youtube.com/@therealgober','_blank')">shitty channel (YouTube)</button>
-    </div>      <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/veryeasytutorialtrust','_blank')">very easy tutorial trust</button>
-    <div class="profile-info sub-window" id="odetariWindow" style="display:none;">
-        <div class="window-bar" id="odetariWindowBar">
-            <button class="window-btn min" title="Minimize" onclick="minimizeWindow('odetariContent')">_</button>
-            <button class="window-btn close" title="Close" onclick="closeWindow('odetariWindow')">&#10005;</button>
-        </div>ndertml copy window -->
-        <div class="profile-content" id="odetariContent">ow" style="display:none;">
-            <p>SELF TAUGHT - Odetari</p>rtmlWindowBar">
-            <audio controls>indow-btn min" title="Minimize" onclick="minimizeWindow('undertmlContent')">_</button>
-                <source src="selftaught.mp3" type="audio/mpeg">ick="closeWindow('undertmlWindow')">&#10005;</button>
-                Your browser does not support the audio element.
-            </audio>profile-content" id="undertmlContent">
-            <p><button class="link-btn" onclick="window.open('https://open.spotify.com/track/5C4XvA46ipcKgQeqUQ1HA5?si=a2d10f8a339f45fd')">Spotify</button></p>
-        </div> style="margin-bottom:0.8rem;">A copy of undertml. I do not own this project, I am only hosting it because it is blocked on some networks.</p>
-    </div>  <div style="display:flex;gap:0.6rem;">
-    <div class="profile-info sub-window" id="projectsWindow" style="display:none;">ithub.io/undertml-copy','_blank')">Open undertml copy</button>
+        </div>
+        <div class="profile-content" id="socialsContent">
+            <p>I've worked on:</p>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                <button class="link-btn" onclick="window.open('https://www.youtube.com/@therealgober','_blank')">YouTube</button>
+                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe','_blank')">GitHub</button>
+                <button class="link-btn" onclick="window.open('https://tiktok.com/@gober.real','_blank')">TikTok</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile-info sub-window" id="projectsWindow" style="display:none;">
         <div class="window-bar" id="projectsWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('projectsContent')">_</button>
             <button class="window-btn close" title="Close" onclick="closeWindow('projectsWindow')">&#10005;</button>
-        </div>he Posts popup window -->
-        <div class="profile-content" id="projectsContent">style="display:none;">
+        </div>
+        <div class="profile-content" id="projectsContent">
             <h3 style="margin-top:0;color:#a7c7e7;">Projects</h3>
-            <p style="margin-bottom:0.6rem;">A few things I've worked on:</p>Window('postsContent')">_</button>
-            <div style="display:flex;flex-direction:column;gap:0.6rem;">eWindow('postsWindow')">&#10005;</button>
-                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe','_blank')">dumbass gitHub repos</button>
-                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe/gober-site','_blank')"> this site(repo)</button>
-                <button class="link-btn" onclick="window.open('https://youtube.com/@therealgober','_blank')">shitty channel (YouTube)</button>
-                <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/veryeasytutorialtrust','_blank')">very easy tutorial trust</button>
-            </div>abel for="postsPassword">Enter password to post:</label>
-        </div>  <input type="password" id="postsPassword" style="border-radius:8px;padding:0.4em;">
-    </div>      <button class="link-btn" onclick="checkPostsPassword()">Login</button>
-                <p id="postsLoginError" style="color:#e94f4f;"></p>
-    <!-- New Undertml copy window -->
+            <p style="margin-bottom:0.6rem;">A few things I've worked on:</p>
+            <div style="display:flex;flex-direction:column;gap:0.6rem;">
+                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe','_blank')">GitHub repos</button>
+                <button class="link-btn" onclick="window.open('https://github.com/goberfelfe/gober-site','_blank')">This site (repo)</button>
+                <button class="link-btn" onclick="window.open('https://youtube.com/@therealgober','_blank')">YouTube channel</button>
+                <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/veryeasytutorialtrust','_blank')">Very easy tutorial trust</button>
+            </div>
+        </div>
+    </div>
+
     <div class="profile-info sub-window" id="undertmlWindow" style="display:none;">
         <div class="window-bar" id="undertmlWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('undertmlContent')">_</button>
@@ -311,14 +292,13 @@
         </div>
         <div class="profile-content" id="undertmlContent">
             <h3 style="margin-top:0;color:#a7c7e7;">Undertml copy</h3>
-            <p style="margin-bottom:0.8rem;">A copy of undertml. I do not own this project, I am only hosting it because it is blocked on some networks.</p>
+            <p style="margin-bottom:0.8rem;">A copy of undertml. I do not own this project; I'm hosting it because it's blocked on some networks.</p>
             <div style="display:flex;gap:0.6rem;">
                 <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/undertml-copy','_blank')">Open undertml copy</button>
             </div>
         </div>
     </div>
 
-    <!-- Posts popup window -->
     <div class="profile-info sub-window" id="postsWindow" style="display:none;">
         <div class="window-bar" id="postsWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('postsContent')">_</button>
@@ -401,5 +381,35 @@
         w.style.transform = 'translate(-50%, 0)';
         w.style.zIndex = 1001;
         const content = w.querySelector('.profile-content');
-        if
+        if (content) content.style.display = '';
+    }
+
+    function checkPostsPassword() {
+        const pw = document.getElementById('postsPassword')?.value || '';
+        const err = document.getElementById('postsLoginError');
+        if (pw === 'password') {
+            document.getElementById('postsLogin').style.display = 'none';
+            document.getElementById('postsArea').style.display = '';
+            if (err) err.textContent = '';
+        } else {
+            if (err) err.textContent = 'Incorrect password';
+        }
+    }
+
+    function addPost() {
+        const text = document.getElementById('postsText')?.value || '';
+        if (!text) return;
+        const list = document.getElementById('postsList');
+        const p = document.createElement('div');
+        p.textContent = text;
+        p.style.background = '#393e6d';
+        p.style.padding = '0.6rem';
+        p.style.borderRadius = '8px';
+        p.style.marginBottom = '0.5rem';
+        list.prepend(p);
+        document.getElementById('postsText').value = '';
+    }
+    </script>
+</body>
+</html>
 
