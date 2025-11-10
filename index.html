@@ -192,7 +192,7 @@
 </head>
 <body>
     <div class="profile-header">
-        <img src="[PLACEHOLDER].png"  alt="Profile Picture" class="profile-pic">
+        <img src="https://github.com/goberfelfe.png"  alt="Profile Picture" class="profile-pic">
         <h1>Gober</h1>
         <p>@goberfelfe, @gober.real, @therealgober</p>
     </div>
@@ -305,7 +305,7 @@
                 <p id="postsLoginError" style="color:#e94f4f;"></p>
     <!-- New Undertml copy window -->
     <div class="profile-info sub-window" id="undertmlWindow" style="display:none;">
-        <div class="window-bar" id="undertmlWindowBar">="width:95%;border-radius:8px;padding:0.5em;"></textarea><br>
+        <div class="window-bar" id="undertmlWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('undertmlContent')">_</button>
             <button class="window-btn close" title="Close" onclick="closeWindow('undertmlWindow')">&#10005;</button>
         </div>
@@ -314,16 +314,17 @@
             <p style="margin-bottom:0.8rem;">A copy of undertml. I do not own this project, I am only hosting it because it is blocked on some networks.</p>
             <div style="display:flex;gap:0.6rem;">
                 <button class="link-btn" onclick="window.open('https://goberfelfe.github.io/undertml-copy','_blank')">Open undertml copy</button>
-            </div>= document.getElementById(winId);
-        </div>Dragging = false, offsetX = 0, offsetY = 0;
+            </div>
+        </div>
     </div>
-    <!-- Add the Posts popup window -->', function(e) {
+
+    <!-- Posts popup window -->
     <div class="profile-info sub-window" id="postsWindow" style="display:none;">
         <div class="window-bar" id="postsWindowBar">
             <button class="window-btn min" title="Minimize" onclick="minimizeWindow('postsContent')">_</button>
             <button class="window-btn close" title="Close" onclick="closeWindow('postsWindow')">&#10005;</button>
-        </div>n.style.zIndex = 1000;
-        <div class="profile-content" id="postsContent">ng when dragging
+        </div>
+        <div class="profile-content" id="postsContent">
             <div id="postsList" style="margin-bottom:1em;"></div>
             <div id="postsLogin">
                 <label for="postsPassword">Enter password to post:</label>
@@ -334,55 +335,71 @@
             <div id="postsArea" style="display:none;">
                 <textarea id="postsText" rows="3" style="width:95%;border-radius:8px;padding:0.5em;"></textarea><br>
                 <button class="link-btn" onclick="addPost()">Post</button>
-            </div>ging = false;
+            </div>
         </div>
     </div>
-    <script>all windows draggable except main
-    // Drag to move windowswBar', 'bioWindow');
-    function makeDraggable(barId, winId) {cationWindow');
-        const bar = document.getElementById(barId);indow');
-        const win = document.getElementById(winId););
-        let isDragging = false, offsetX = 0, offsetY = 0;
-    makeDraggable('projectsWindowBar', 'projectsWindow');
+
+    <script>
+    // Simple draggable implementation for window bars
+    function makeDraggable(barId, winId) {
+        const bar = document.getElementById(barId);
+        const win = document.getElementById(winId);
+        if (!bar || !win) return;
+
+        let isDragging = false;
+        let offsetX = 0;
+        let offsetY = 0;
+
         bar.addEventListener('mousedown', function(e) {
-            isDragging = true;Bar', 'postsWindow');
-            offsetX = e.clientX - win.offsetLeft;
-            offsetY = e.clientY - win.offsetTop;Window');
+            isDragging = true;
+            const rect = win.getBoundingClientRect();
+            offsetX = e.clientX - rect.left;
+            offsetY = e.clientY - rect.top;
             win.style.position = 'absolute';
             win.style.zIndex = 1000;
-            win.style.transform = ''; // Remove centering when dragging
-        });n minimizeWindow(contentId) {
-        document.getElementById(contentId).style.display = 'none';
+            document.body.style.userSelect = 'none';
+        });
+
         document.addEventListener('mousemove', function(e) {
-            if (isDragging) {inId) {
-                win.style.left = (e.clientX - offsetX) + 'px';
-                win.style.top = (e.clientY - offsetY) + 'px';
-            }tyle.top = '50%';
-        });.style.transform = 'translate(-50%, -50%)';
-        win.style.width = '800px'; // Increased for popups
+            if (!isDragging) return;
+            win.style.left = (e.clientX - offsetX) + 'px';
+            win.style.top = (e.clientY - offsetY) + 'px';
+        });
+
         document.addEventListener('mouseup', function() {
-            isDragging = false;rySelector('.profile-content');
-        });(content) content.style.display = '';
+            isDragging = false;
+            document.body.style.userSelect = '';
+        });
     }
-    // Make all windows draggable except main
-    makeDraggable('bioWindowBar', 'bioWindow');splay = 'none';
+
+    // Initialize draggable windows (skip missing ones)
+    makeDraggable('bioWindowBar', 'bioWindow');
     makeDraggable('locationWindowBar', 'locationWindow');
     makeDraggable('interestsWindowBar', 'interestsWindow');
     makeDraggable('skillsWindowBar', 'skillsWindow');
-    // removed lyricsWindowBar draggable
     makeDraggable('socialsWindowBar', 'socialsWindow');
-    // removed odetariWindowBar draggable
     makeDraggable('projectsWindowBar', 'projectsWindow');
-    // Make posts window draggablenslate(-50%, 0)';
     makeDraggable('postsWindowBar', 'postsWindow');
-    // Make undertml window draggable Increased from 520px
-    makeDraggable('undertmlWindowBar', 'undertmlWindow');nt');
-        if (content) content.style.display = '';
-    }
+    makeDraggable('undertmlWindowBar', 'undertmlWindow');
+
     // Window controls
     function minimizeWindow(contentId) {
-        document.getElementById(contentId).style.display = 'none';
+        const c = document.getElementById(contentId);
+        if (c) c.style.display = 'none';
     }
-    function maximizeWindow(winId) {        const win = document.getElementById(winId);        win.style.left = '50%';        win.style.top = '50%';        win.style.transform = 'translate(-50%, -50%)';        win.style.width = '800px'; // Increased for popups        win.style.position = 'fixed';        const content = win.querySelector('.profile-content');        if (content) content.style.display = '';    }    function closeWindow(winId) {        document.getElementById(winId).style.display = 'none';    }    function openSubWindow(winId) {        const win = document.getElementById(winId);        win.style.display = '';        win.style.position = 'fixed';        win.style.left = '50%';        win.style.top = '0';        win.style.transform = 'translate(-50%, 0)';        win.style.zIndex = 1001;        win.style.width = '800px'; // Increased from 520px        const content = win.querySelector('.profile-content');        if (content) content.style.display = '';    }    </script></body>
-</html>
+    function closeWindow(winId) {
+        const w = document.getElementById(winId);
+        if (w) w.style.display = 'none';
+    }
+    function openSubWindow(winId) {
+        const w = document.getElementById(winId);
+        if (!w) return;
+        w.style.display = '';
+        w.style.position = 'fixed';
+        w.style.left = '50%';
+        w.style.top = '0';
+        w.style.transform = 'translate(-50%, 0)';
+        w.style.zIndex = 1001;
+        const content = w.querySelector('.profile-content');
+        if
 
